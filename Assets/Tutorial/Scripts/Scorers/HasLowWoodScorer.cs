@@ -13,20 +13,15 @@
             FriendlyName("Score", "The score output for the option that evaluates true")
         ]
 
-        public float score = 10f;
+        public float score;
 
 
         public override float Score(IAIContext c, GameObject option)
         {
             var context = (TargetContext)c;
-            var targets = context.targets;
-            var index = Array.IndexOf(targets, option);
+            score = context.wood;
+            return this.score;
 
-            if (Mathf.RoundToInt(Time.time) % targets.Length == index)
-            {
-                return this.score;
-            }
-            return 0f;
         }
     }
 

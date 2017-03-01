@@ -16,7 +16,6 @@
             context.water -= (int)Random.Range(1, 3);
             context.oil -= (int)Random.Range(1, 3);
 
-
         }
 
     }
