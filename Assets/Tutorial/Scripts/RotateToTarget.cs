@@ -19,7 +19,7 @@
                 return;
             }
 
-            context.self.LookAt(best.transform);
+            //context.self.LookAt(best.transform);
         }
 
     }
