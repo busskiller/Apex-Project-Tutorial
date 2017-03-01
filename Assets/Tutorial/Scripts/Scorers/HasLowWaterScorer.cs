@@ -20,12 +20,12 @@
         {
             var context = (TargetContext)c;
             var targets = context.targets;
-            var index = Array.IndexOf(targets, option);
+            //var index = Array.IndexOf(targets, option);
 
-            if (Mathf.RoundToInt(Time.time) % targets.Length == index)
-            {
-                return this.score;
-            }
+            //if (Mathf.RoundToInt(Time.time) % targets.Length == index)
+            //{
+            //    return this.score;
+            //}
             return 0f;
         }
     }

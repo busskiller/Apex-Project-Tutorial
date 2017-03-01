@@ -3,7 +3,7 @@
     using Apex.AI;
     using UnityEngine;
 
-    public class RotateToTarget : ActionWithOptions<GameObject>
+    public class RotateToTarget : ActionWithOptions<HexInfo>
     {
 
         public override void Execute(IAIContext c)
@@ -19,7 +19,7 @@
                 return;
             }
 
-            //context.self.LookAt(best.transform);
+            context.self.LookAt(best.transform);
         }
 
     }

@@ -7,8 +7,14 @@ public class CityContext : IAIContext {
     public float food;
     public float water;
     public float oil;
-	// Use this for initialization
-	void Start () {
+
+    public List<HexInfo> _surroundingHexCells;
+    public List<HexInfo> _workedHexCells;
+
+    //public int tilesBeingWorked;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	

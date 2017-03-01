@@ -1,16 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Apex.AI;
+using System.Linq;
+public sealed class ReassignWorkerToOilAction : ActionBase {
 
-public class ReassignWorkerAction : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override void Execute(IAIContext context)
+    {
+        var c = (TargetContext) context;
+        List<HexInfo> h = new List<HexInfo>(c.targets.OrderBy(x => x.oil));
+        c.workedHexInfos.Add(h[h.Count-1]);
+        Debug.Log("Moved Worker "  + h[h.Count - 1].oil);
+    }
 }

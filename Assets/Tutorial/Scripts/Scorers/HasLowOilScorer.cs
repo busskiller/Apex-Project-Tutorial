@@ -1,34 +1,16 @@
-﻿namespace MyNameSpace1
-{
-    using System;
+﻿    using System;
     using Apex.AI;
     using Apex.Serialization;
+    using MyNameSpace1;
     using UnityEngine;
 
-    public sealed class HasLowOilScorer : OptionScorerBase<GameObject>
-    {
+    public sealed class HasLowOilScorer : ContextualScorerBase
+{
 
-        [
-            ApexSerialization(defaultValue = 10f),
-            FriendlyName("Score", "The score output for the option that evaluates true")
-        ]
-
-        public float score = 10f;
-
-
-        public override float Score(IAIContext c, GameObject option)
+        public override float Score(IAIContext _context)
         {
-            var context = (TargetContext)c;
-            var targets = context.targets;
-            var index = Array.IndexOf(targets, option);
-
-            if (Mathf.RoundToInt(Time.time) % targets.Length == index)
-            {
-                return this.score;
-            }
-            return 0f;
+            TargetContext context = (TargetContext) _context;
+            //var targets = context._surroundingHexCells;
+            return score = 100/context.oil;
         }
-    }
-
 }
-

@@ -1,4 +1,5 @@
-﻿using Apex.AI.Components;
+﻿using System.Collections.Generic;
+using Apex.AI.Components;
 
 namespace MyNameSpace1
 {
@@ -10,13 +11,12 @@ namespace MyNameSpace1
 
     public class TargetContextProvider : MonoBehaviour, IContextProvider
     {
-
+        [SerializeField] private List<HexInfo> _targets;
+        [SerializeField]
+        private List<HexInfo> _workedHexInfos;
 
         [SerializeField]
-        private GameObject[] _targets = new GameObject[0];
-
-        [SerializeField]
-        private int _oil = 10;
+        public int _oil = 10;
         [SerializeField]
         private int _wood = 10;
         [SerializeField]
@@ -29,7 +29,7 @@ namespace MyNameSpace1
 
         public void OnEnable()
         {
-            _context = new TargetContext(this.transform, _targets, _oil, _wood, _water, _food);
+            _context = new TargetContext(this.transform, _targets, _workedHexInfos, _oil, _wood, _water, _food);
         }
 
         public IAIContext GetContext(Guid aiId)
@@ -37,6 +37,13 @@ namespace MyNameSpace1
             return _context;
         }
 
+
+        void Update()
+        {
+            _oil = _context.oil;
+            _water = _context.water;
+            _food = _context.food;
+        }
     }
 
 }

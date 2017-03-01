@@ -5,7 +5,7 @@
     using Apex.Serialization;
     using UnityEngine;
 
-    public sealed class TimedTargetScorer : OptionScorerBase<GameObject>
+    public sealed class TimedTargetScorer : OptionScorerBase<HexInfo>
     {
 
         [
@@ -16,17 +16,9 @@
         public float score = 10f;
 
 
-        public override float Score(IAIContext c, GameObject option)
+        public override float Score(IAIContext context, HexInfo option)
         {
-            var context = (TargetContext)c;
-            var targets = context.targets;
-            var index = Array.IndexOf(targets, option);
-
-            if (Mathf.RoundToInt(Time.time) % targets.Length == index)
-            {
-                return this.score;
-            }
-            return 0f;
+            throw new NotImplementedException();
         }
     }
 

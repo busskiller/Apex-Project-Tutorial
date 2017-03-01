@@ -1,5 +1,6 @@
 ﻿
 
+    using System.Collections.Generic;
     using Apex.AI;
     using UnityEngine;
 
@@ -7,11 +8,11 @@
     {
 
 
-        public TargetContext(Transform transform, GameObject[] targets, int oil, int wood, int water, int food)
+        public TargetContext(Transform transform, List<HexInfo> targets, List<HexInfo> workedHexInfos, int oil, int wood, int water, int food)
         {
             this.self = transform;
             this.targets = targets;
-
+            this.workedHexInfos = workedHexInfos;
             this.oil = oil;
             this.wood = wood;
             this.water = water;
@@ -20,8 +21,9 @@
         }
 
         public Transform self { get; private set; }
+         public List<HexInfo> workedHexInfos { get; private set; }
 
-        public GameObject[] targets { get; private set; }
+    public List<HexInfo> targets { get; private set; }
 
 
 
