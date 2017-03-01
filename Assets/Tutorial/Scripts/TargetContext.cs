@@ -1,5 +1,5 @@
-﻿namespace MyNameSpace1
-{
+﻿
+
     using Apex.AI;
     using UnityEngine;
 
@@ -32,5 +32,5 @@
 
     }
 
-}
+
 
