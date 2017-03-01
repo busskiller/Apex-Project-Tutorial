@@ -7,6 +7,7 @@ public class HexInfo : MonoBehaviour
     public int oil;
     public int food, water;
 
+    public bool isBeingWorkedOn;
 
     // Use this for initialization
     void Start()
