@@ -1,42 +1,16 @@
-﻿namespace MyNameSpace1
-{
-    using System;
+﻿    using System;
     using Apex.AI;
     using Apex.Serialization;
     using UnityEngine;
 
-    public sealed class HasLowWaterScorer : OptionScorerBase<GameObject>
-    {
+    public sealed class HasLowWaterScorer : ContextualScorerBase
+{
 
-        [
-            ApexSerialization(defaultValue = 10f),
-            FriendlyName("Score", "The score output for the option that evaluates true")
-        ]
-
-        public int test;
-
-        public override float Score(IAIContext c, GameObject option)
+        public override float Score(IAIContext _context)
         {
-            // Cast the provided context to your concrete context type
-            var context = (TargetContext)c;
-<<<<<<< HEAD
-            var targets = context.targets;
-            //var index = Array.IndexOf(targets, option);
-
-            //if (Mathf.RoundToInt(Time.time) % targets.Length == index)
-            //{
-            //    return this.score;
-            //}
-            return 0f;
-=======
-
-            test = context.water;
-            // Put scoring logic here
-
-            return test;
->>>>>>> origin/master
+            TargetContext context = (TargetContext)_context;
+            //var targets = context._surroundingHexCells;
+            return score = 100f / context.water;
         }
-    }
-
 }
 

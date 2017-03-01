@@ -6,17 +6,19 @@
 
     public sealed class TargetContext : IAIContext
     {
-
-
+        private HexInfo cityTile;
         public TargetContext(Transform transform, List<HexInfo> targets, List<HexInfo> workedHexInfos, int oil, int wood, int water, int food)
         {
             this.self = transform;
+            cityTile = targets[0];
+            targets.RemoveAt(0);
             this.targets = targets;
             this.workedHexInfos = workedHexInfos;
             this.oil = oil;
             this.wood = wood;
             this.water = water;
             this.food = food;
+            
 
         }
 

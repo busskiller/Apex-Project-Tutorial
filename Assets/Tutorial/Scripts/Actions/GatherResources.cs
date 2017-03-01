@@ -15,7 +15,6 @@ public sealed class GatherResources : ActionBase {
             c.food += workedHexInfo.food;
             c.water += workedHexInfo.water;
         }
-      
         // List<HexInfo> h = new List<HexInfo>(c._surroundingHexCells.OrderBy(x => x.oil));
         //c._workedHexCells.Add(h[h.Count-1]);
         //Debug.Log("Moved Worker "  + h[h.Count - 1].oil);

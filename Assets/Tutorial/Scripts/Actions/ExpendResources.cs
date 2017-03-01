@@ -12,7 +12,6 @@ public sealed class ExpendResources : ActionBase {
         c.oil--;
         c.food--;
         c.water--;
-        Debug.Log("Expending Resources" + c.oil);
         // List<HexInfo> h = new List<HexInfo>(c._surroundingHexCells.OrderBy(x => x.oil));
         //c._workedHexCells.Add(h[h.Count-1]);
         //Debug.Log("Moved Worker "  + h[h.Count - 1].oil);
